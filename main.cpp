@@ -63,12 +63,6 @@ int main()
 	{
 		iter_count++;
 		// Solve the restricted master problem (RMP) using HiGHS
-		/*
-			define model
-			define variable - size, lower bound, upper bound, float (relaxed version)
-			define constraints - demand constraint for each item
-			define onjective function - summation of variables
-		*/
 
 		Highs highs;
 		HighsModel model;
@@ -133,12 +127,12 @@ int main()
 		cout << "\n\t Iteration: " << iter_count << "\t Required Number of logs: " << obj << endl;	// first iteration: Required number of logs: 23.4167
 
 		// get the dual variables from the RMP
-		double* Duals = new double[nLength]();
-		for (int i = 0; i < nLength; i++)
-		{
-			Duals[i] = info.dual_row_values[i];	// dual variable for each demand constraint
-			cout << Duals[i] << endl;
-		}
+		//double* Duals = new double[nLength]();
+		//for (int i = 0; i < nLength; i++)
+		//{
+		//	Duals[i] = info.dual_row_values[i];	// dual variable for each demand constraint
+		//	cout << Duals[i] << endl;
+		//}
 		int jj = 0;
 		// generate a new pattern from the subproblem (knapsack problem)
 
