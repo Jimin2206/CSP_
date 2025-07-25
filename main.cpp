@@ -120,8 +120,8 @@ int main()
 			throw - 1;
 		}
 
-		const vector<double>& sol = highs.getSolution().col_value;	// 최적 변수 값
-		double obj = highs.getInfo().objective_function_value;		// 목적 함수 값
+		const vector<double>& sol = highs.getSolution().col_value;	// optimal variable values
+		double obj = highs.getInfo().objective_function_value;		// optimal objective value
 
 		cout << "\n\t Iteration: " << iter_count << "\t Required Number of logs: " << obj << endl;	// first iteration: Required number of logs: 23.4167
 
