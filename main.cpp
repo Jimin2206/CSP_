@@ -4,10 +4,8 @@
 */
 
 /*
-	with a small number of patterns (columns)
-	and generating additional patterns as needed
-
-	generate additional patterns by solving a knapsack problem
+	start with a small number of patterns (columns),
+	generating additional patterns as needed by solving a subproblem (knapsack problem)
 */
 
 // L: total length of each roll
@@ -128,7 +126,7 @@ int main()
 		// get the dual variables from the RMP
 		double* Duals = new double[nLength]();
 		const vector<double>& duals = highs.getSolution().row_dual;
-
+		
 		for (int i = 0; i < nLength; i++)
 		{
 			Duals[i] = duals[i];	// dual variable for each demand constraint
