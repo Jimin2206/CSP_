@@ -163,4 +163,20 @@ int main()
 		cout << " ]: used " << final_sol[p] << " times" << endl;
 	}
 	return 0;
+
+	/*
+		Final patterns
+		Pattern 0[10 0 0 0 0 0]: used 2 times
+		Pattern 1[0 20 0 0 0 0] : used 0.633333 times
+		Pattern 2[0 0 6 0 0 0] : used 0 times
+		Pattern 3[0 0 0 5 0 0] : used 0 times
+		Pattern 4[0 0 0 0 5 0] : used 1.8 times
+		Pattern 5[0 0 0 0 0 3] : used 0 times
+		Pattern 6[0 0 0 4 0 1] : used 3 times
+		Pattern 7[0 2 0 0 0 3] : used 10.3333 times
+		Pattern 8[0 2 6 0 0 0] : used 3.83333 times
+
+		-> not an integer solution
+		-> Branch and Price algorithm
+	*/
 }
