@@ -53,6 +53,9 @@ int main()
 		cout << " ]" << endl;
 	}
 
+	// vector to save final solution (optimal number of patterns used)
+	vector<double> final_sol;
+
 #pragma endregion
 
 	int iter_count = 0;
@@ -121,6 +124,8 @@ int main()
 		const vector<double>& sol = highs.getSolution().col_value;	// optimal variable values
 		double obj = highs.getInfo().objective_function_value;		// optimal objective value
 
+		final_sol = sol;
+
 		cout << "\n\t Iteration: " << iter_count << "\t Required Number of logs: " << obj << endl;	// first iteration: Required number of logs: 23.4167
 
 		// get the dual variables from the RMP
@@ -146,6 +151,7 @@ int main()
 		}
 	}
 
+
 	cout << "Final patterns" << endl;
 	for (int p = 0; p < Pattern.size(); p++)
 	{
@@ -154,7 +160,7 @@ int main()
 		{
 			cout << " " << Pattern[p][i];
 		}
-		cout << " ]" << endl;
+		cout << " ]: used " << final_sol[p] << " times" << endl;
 	}
 	return 0;
 }
