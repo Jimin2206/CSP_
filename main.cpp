@@ -132,14 +132,31 @@ int main()
 		for (int i = 0; i < nLength; i++)
 		{
 			Duals[i] = duals[i];	// dual variable for each demand constraint
-			cout << Duals[i] << endl;
+			//cout << Duals[i] << endl;	// 0.1, 0.05, 0.166667, 0.2, 0.2, 0.333333
 		}
-		int jj = 0;
-		// generate a new pattern from the subproblem (knapsack problem)
 
+		//int jj = 0;
+		// generate a new pattern from the subproblem (knapsack problem)
+		int* NewPat = new int[nLength]();
+		double SP_obj = SubProblem(Duals, NewPat);
 
 		// check the optimality condition/ add the new patterns
-
-
+		if (1 - SP_obj >= 0) { break; }
+		else
+		{
+			Pattern.push_back(NewPat);
+		}
 	}
+
+	cout << "Final patterns" << endl;
+	for (int p = 0; p < Pattern.size(); p++)
+	{
+		cout << "Pattern " << p << " [";
+		for (int i = 0; i < nLength; i++)
+		{
+			cout << " " << Pattern[p][i];
+		}
+		cout << " ]" << endl;
+	}
+	return 0;
 }
