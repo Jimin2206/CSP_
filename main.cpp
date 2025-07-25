@@ -122,17 +122,18 @@ int main()
 
 		const vector<double>& sol = highs.getSolution().col_value;	// 최적 변수 값
 		double obj = highs.getInfo().objective_function_value;		// 목적 함수 값
-		const HighsInfo& info = highs.getInfo();
 
 		cout << "\n\t Iteration: " << iter_count << "\t Required Number of logs: " << obj << endl;	// first iteration: Required number of logs: 23.4167
 
 		// get the dual variables from the RMP
-		//double* Duals = new double[nLength]();
-		//for (int i = 0; i < nLength; i++)
-		//{
-		//	Duals[i] = info.dual_row_values[i];	// dual variable for each demand constraint
-		//	cout << Duals[i] << endl;
-		//}
+		double* Duals = new double[nLength]();
+		const vector<double>& duals = highs.getSolution().row_dual;
+
+		for (int i = 0; i < nLength; i++)
+		{
+			Duals[i] = duals[i];	// dual variable for each demand constraint
+			cout << Duals[i] << endl;
+		}
 		int jj = 0;
 		// generate a new pattern from the subproblem (knapsack problem)
 
